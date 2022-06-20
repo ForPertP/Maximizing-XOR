@@ -5,10 +5,20 @@ using namespace std;
 string ltrim(const string &);
 string rtrim(const string &);
 
+/*
+ * Complete the 'maximizingXor' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts following parameters:
+ *  1. INTEGER l
+ *  2. INTEGER r
+ */
+
 int maximizingXor(int l, int r)
 {
-    return 1;
+    return (1 << int(log2(l ^ r) + 1)) - 1;
 }
+
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
@@ -46,3 +56,10 @@ string ltrim(const string &str) {
 string rtrim(const string &str) {
     string s(str);
 
+    s.erase(
+        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
+        s.end()
+    );
+
+    return s;
+}
