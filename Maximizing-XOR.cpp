@@ -5,7 +5,10 @@ using namespace std;
 string ltrim(const string &);
 string rtrim(const string &);
 
-
+int maximizingXor(int l, int r)
+{
+    return 1;
+}
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
