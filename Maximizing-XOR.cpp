@@ -19,6 +19,20 @@ int maximizingXor(int l, int r)
     return (1 << int(log2(l ^ r) + 1)) - 1;
 }
 
+int maximizingXor(int l, int r) {
+    int max_xor = 0;
+    
+    for (int i = l; i <= r; i++) {
+        for (int j = i; j <= r; j++) {
+            int current_xor = i ^ j;
+            if (current_xor > max_xor) {
+                max_xor = current_xor;
+            }
+        }
+    }
+    
+    return max_xor;
+}
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
