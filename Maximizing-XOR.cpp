@@ -14,10 +14,6 @@ string rtrim(const string &);
  *  2. INTEGER r
  */
 
-int maximizingXor(int l, int r)
-{
-    return (1 << int(log2(l ^ r) + 1)) - 1;
-}
 
 int maximizingXor(int l, int r) {
     int max_xor = 0;
@@ -33,6 +29,28 @@ int maximizingXor(int l, int r) {
     
     return max_xor;
 }
+
+
+int maximizingXor2(int l, int r) {
+    int xor_xor = l ^ r;
+    
+    int max_value = 0;
+    while (xor_xor > 0) {
+        max_value <<= 1;
+        max_value |= 1;
+        xor_xor >>= 1;
+    }
+    
+    return max_value;
+}
+
+
+int maximizingXor3(int l, int r)
+{
+    return (1 << int(log2(l ^ r) + 1)) - 1;
+}
+
+
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
